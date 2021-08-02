@@ -45,7 +45,9 @@ function Home(props) {
                         >
                             <Card className={classes.root}
                                 style={{
-                                    backgroundColor: 'lightblue'
+                                    backgroundColor: 'lightblue',
+                                    minWidth:'400px',
+                                    minHeight: '450px',
                                 }}
                             >
                                 <CardActionArea>
@@ -69,7 +71,7 @@ function Home(props) {
                                             maxLength: '100',
                                         }}
                                     >
-                                        { book?.volumeInfo ? book?.volumeInfo?.description.slice(0, 100) : null }...
+                                        { book.volumeInfo.description ? book.volumeInfo.description.slice(0, 100) : null }...
                                     </Typography>
                                     </CardContent>
                                 </CardActionArea>
