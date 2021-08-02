@@ -59,7 +59,7 @@ function Home(props) {
                                     />
                                     <CardContent>
                                     <Typography gutterBottom variant="h5" component="h2">
-                                        { book?.volumeInfo?.title.slice(0,25) }...
+                                        { book?.volumeInfo ? book?.volumeInfo?.title.slice(0,25) : null }...
                                     </Typography>
                                     <Typography 
                                         variant="body2"
@@ -69,7 +69,7 @@ function Home(props) {
                                             maxLength: '100',
                                         }}
                                     >
-                                        { book?.volumeInfo?.description.slice(0, 100) }...
+                                        { book?.volumeInfo ? book?.volumeInfo?.description.slice(0, 100) : null }...
                                     </Typography>
                                     </CardContent>
                                 </CardActionArea>
