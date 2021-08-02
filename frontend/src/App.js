@@ -10,8 +10,11 @@ function App() {
   return (
     <Router>
       <Switch>
+        <div className="Allpage">
         <Route exact path="/" component={Home} />
         <Route exact path="/:roomId" component={ChatRoom} />
+        </div>
+        
       </Switch>
     </Router>
   );

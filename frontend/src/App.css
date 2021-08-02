@@ -38,16 +38,30 @@
 }
 
 .home-books {
-  margin: 5%;
   display: flex;
-  flex-direction: row;
   align-items: center;
-  flex-wrap: wrap;
-  text-decoration: none;
+  flex-direction: column;
+  width: 100%;
   /* justify-content: center; */
 }
 
 .home-book-card {
-  margin: 2%;
   text-decoration: none;
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  margin:0;
+  padding: 0;
+}
+
+.home-book-card li {
+  margin: 1em;
+}
+
+
+.Allpage{
+
+display: flex;
+justify-content: center;
+
 }
