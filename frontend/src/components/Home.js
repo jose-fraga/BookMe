@@ -20,6 +20,7 @@ const useStyles = makeStyles({
 
 function Home(props) {
     const [books, setBooks] = useState([]);
+
     const classes = useStyles();
 
     useEffect(() => {
@@ -29,7 +30,7 @@ function Home(props) {
         })();
       }, [])
 
-      console.log(books);
+    console.log(books);
 
     return (
         <div className="home-books">
@@ -58,7 +59,7 @@ function Home(props) {
                                     />
                                     <CardContent>
                                     <Typography gutterBottom variant="h5" component="h2">
-                                        {book.volumeInfo.title.slice(0,25)}...
+                                        { book?.volumeInfo?.title.slice(0,25) }...
                                     </Typography>
                                     <Typography 
                                         variant="body2"
@@ -68,7 +69,7 @@ function Home(props) {
                                             maxLength: '100',
                                         }}
                                     >
-                                        {book.volumeInfo.description.slice(0, 100)}...
+                                        { book?.volumeInfo?.description.slice(0, 100) }...
                                     </Typography>
                                     </CardContent>
                                 </CardActionArea>
