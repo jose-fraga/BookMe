@@ -36,3 +36,18 @@
     transform: rotate(360deg);
   }
 }
+
+.home-books {
+  margin: 5%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  flex-wrap: wrap;
+  text-decoration: none;
+  /* justify-content: center; */
+}
+
+.home-book-card {
+  margin: 2%;
+  text-decoration: none;
+}
