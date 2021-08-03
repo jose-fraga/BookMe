@@ -6,7 +6,6 @@ import ChatRoom from "./components/ChatRoom";
 
 
 function App() {
-
   return (
     <Router>
       <Switch>
