@@ -79,3 +79,9 @@ Card:hover {
   background-color: #60eff4;
   box-shadow: 0 0 2em black;
 }
+
+.new-message-input-field{
+  position: fixed;
+  top: 90vh;
+  width: 50%;
+}
