@@ -67,7 +67,7 @@ function handleChange(event) {
                 id='CardHome'
                   className={classes.root}
                 >
-                  <CardActionArea>
+                  <CardActionArea> 
                     <CardMedia
                       className={classes.media}
                       image={book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.smallThumbnail : null}
