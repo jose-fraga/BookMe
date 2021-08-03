@@ -85,9 +85,13 @@ export default function PrimarySearchAppBar(props) {
   const classes = useStyles();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
+
   const [books, setBooks] = React.useState([]);
+
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
+
+
   function handleChange(event) {
     (async function Request() {
       const res = await axios.get(
@@ -96,6 +100,8 @@ export default function PrimarySearchAppBar(props) {
       setBooks(res.data.items);
     })();
   }
+
+
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -190,14 +196,17 @@ export default function PrimarySearchAppBar(props) {
             <div className={classes.searchIcon}>
               <SearchIcon />
             </div>
-            <form className={classes.root} noValidate autoComplete="off">
-              <TextField
-                id="outlined-basic"
-                onChange={handleChange}
-                label="Search"
-                variant="outlined"
-              />
-            </form>
+
+
+            <InputBase placeholder="Search…"
+            inputProps={{ "aria-label": "search" }}
+              classes={{
+                root: classes.inputRoot,
+                input: classes.inputInput,
+              }}>
+            </InputBase>
+
+
             {/*<InputBase
               placeholder="Search…"
               classes={{
