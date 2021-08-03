@@ -46,7 +46,6 @@ function handleChange(event) {
 
 }
 
-
   console.log(books);
 
   return (
@@ -65,12 +64,8 @@ function handleChange(event) {
                 to={`/${book.volumeInfo.title}`}
               >
                 <Card
+                id='CardHome'
                   className={classes.root}
-                  style={{
-                    backgroundColor: "lightblue",
-                    minWidth: "400px",
-                    minHeight: "450px",
-                  }}
                 >
                   <CardActionArea>
                     <CardMedia
@@ -84,9 +79,9 @@ function handleChange(event) {
                     <CardContent>
                       <Typography gutterBottom variant="h5" component="h2">
                         {book?.volumeInfo
-                          ? book?.volumeInfo?.title.slice(0, 25)
-                          : null}
-                        ...
+                          ? book?.volumeInfo?.title.slice(0, 26) + "..."
+                          : "..."}
+                        
                       </Typography>
                       <Typography
                         variant="body2"
@@ -97,7 +92,7 @@ function handleChange(event) {
                         }}
                       >
                         {book.volumeInfo.description
-                          ? book.volumeInfo.description.slice(0, 100)
+                          ? book.volumeInfo.description.slice(0, 155)
                           : null}
                         ...
                       </Typography>
