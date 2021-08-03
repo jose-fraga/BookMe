@@ -1,5 +1,5 @@
-import axios from "axios";
-import React, { useState, useEffect } from "react";
+
+import React from "react";
 import { alpha, makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
@@ -15,7 +15,8 @@ import AccountCircle from "@material-ui/icons/AccountCircle";
 import MailIcon from "@material-ui/icons/Mail";
 import NotificationsIcon from "@material-ui/icons/Notifications";
 import MoreIcon from "@material-ui/icons/MoreVert";
-import TextField from "@material-ui/core/TextField";
+
+
 
 const useStyles = makeStyles((theme) => ({
   grow: {
@@ -86,21 +87,8 @@ export default function PrimarySearchAppBar(props) {
   const [anchorEl, setAnchorEl] = React.useState(null);
   const [mobileMoreAnchorEl, setMobileMoreAnchorEl] = React.useState(null);
 
-  const [books, setBooks] = React.useState([]);
-
   const isMenuOpen = Boolean(anchorEl);
   const isMobileMenuOpen = Boolean(mobileMoreAnchorEl);
-
-
-  function handleChange(event) {
-    (async function Request() {
-      const res = await axios.get(
-        `https://www.googleapis.com/books/v1/volumes?q=${props.value}`
-      );
-      setBooks(res.data.items);
-    })();
-  }
-
 
   const handleProfileMenuOpen = (event) => {
     setAnchorEl(event.currentTarget);
@@ -200,6 +188,9 @@ export default function PrimarySearchAppBar(props) {
 
             <InputBase placeholder="Search…"
             inputProps={{ "aria-label": "search" }}
+            onChange={ props.onChange }
+            name={ props.name }
+            value={ props.value }
               classes={{
                 root: classes.inputRoot,
                 input: classes.inputInput,

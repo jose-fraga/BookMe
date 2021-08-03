@@ -22,7 +22,7 @@ const useStyles = makeStyles({
 function Home(props) {
   const [books, setBooks] = useState([]);
 
-  const [search, setSearch] = useState([]);
+  const [search, setSearch] = useState({name:""});
 
   const classes = useStyles();
 
@@ -36,37 +36,44 @@ function Home(props) {
   }, []);
 
   function handleChange(event) {
-    (async function Request() {
-      const res = await axios.get(
-        `https://www.googleapis.com/books/v1/volumes?q=${props.value}`
-      );
-      setBooks(res.data.items);
-    })();
+    setSearch({
+      ...search,
+      [event.currentTarget.name]: event.currentTarget.value,
+    });
+    
+    handleSearch()
   }
 
-  console.log(books);
+
+  function handleSearch() {
+    (async function Request() {
+      const res = await axios.get(
+        `https://www.googleapis.com/books/v1/volumes?q=${search.name}`
+      );
+      setBooks(res.data.items);
+    })(); 
+  }
+  console.log("eu sou search from home --> ",search)
+  
 
   return (
     <div className="home-books">
-    <SimpleTabs/>
+      <SimpleTabs onChange={ handleChange } name="name" value={ search.name } />
       {/*<form className={classes.root} noValidate autoComplete="off">
         <TextField id="outlined-basic" onChange={ handleChange } label="Search" variant="outlined" />
   </form>*/}
       <ul className="home-book-card">
-        {books?.map((book) => {
+        {books?.map((book, i) => {
           return (
-            <li>
+            <li key={i} >
               <Link
                 style={{
                   textDecoration: "none",
                 }}
                 to={`/${book.volumeInfo.title}`}
               >
-                <Card
-                id='CardHome'
-                  className={classes.root}
-                >
-                  <CardActionArea> 
+                <Card id="CardHome" className={classes.root}>
+                  <CardActionArea>
                     <CardMedia
                       className={classes.media}
                       image={
@@ -84,7 +91,6 @@ function Home(props) {
                         {book?.volumeInfo
                           ? book?.volumeInfo?.title.slice(0, 26) + "..."
                           : "..."}
-                        
                       </Typography>
                       <Typography
                         variant="body2"

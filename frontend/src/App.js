@@ -3,11 +3,10 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import "./index.css";
 import Home from "./components/Home";
 import ChatRoom from "./components/ChatRoom";
-import SimpleTabs from "./components/SimpleTabs";
+
 function App() {
   return (
     <Router>
-      <SimpleTabs />
       <Switch>
         <div className="Allpage">
           <Route exact path="/" component={Home} />
