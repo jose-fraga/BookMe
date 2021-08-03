@@ -50,7 +50,7 @@
   display: flex;
   flex-wrap: wrap;
   list-style: none;
-  margin:0;
+  margin: 0;
   padding: 0;
 }
 
@@ -58,10 +58,30 @@
   margin: 1em;
 }
 
+.Allpage {
+  display: flex;
+  justify-content: center;
+}
 
-.Allpage{
+Card:hover {
+  color: yellow;
+}
 
-display: flex;
-justify-content: center;
+#CardHome {
+  background-color: #79eef2;
+  border-radius: 25px;
+  box-shadow: 0 0 1em grey;
+  min-width: 400px;
+  min-height: 450px;
+}
 
+#CardHome:hover {
+  background-color: #60eff4;
+  box-shadow: 0 0 2em black;
+}
+
+.new-message-input-field{
+  position: fixed;
+  top: 90vh;
+  width: 50%;
 }
