@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import Card from "@material-ui/core/Card";
+import SimpleTabs from "./SimpleTabs";
 import CardActionArea from "@material-ui/core/CardActionArea";
 import CardContent from "@material-ui/core/CardContent";
 import CardMedia from "@material-ui/core/CardMedia";
@@ -22,7 +23,7 @@ const useStyles = makeStyles({
 function Home(props) {
   const [books, setBooks] = useState([]);
 
-const [search, setSearch] = useState([]);
+  const [search, setSearch] = useState([]);
 
   const classes = useStyles();
 
@@ -35,25 +36,23 @@ const [search, setSearch] = useState([]);
     })();
   }, []);
 
-function handleChange(event) {
-
+  function handleChange(event) {
     (async function Request() {
-        const res = await axios.get(
-          `https://www.googleapis.com/books/v1/volumes?q=${event.target.value}`
-        );
-        setBooks(res.data.items);
-      })();
-
-}
-
+      const res = await axios.get(
+        `https://www.googleapis.com/books/v1/volumes?q=${props.value}`
+      );
+      setBooks(res.data.items);
+    })();
+  }
 
   console.log(books);
 
   return (
     <div className="home-books">
-      <form className={classes.root} noValidate autoComplete="off">
+    <SimpleTabs/>
+      {/*<form className={classes.root} noValidate autoComplete="off">
         <TextField id="outlined-basic" onChange={ handleChange } label="Search" variant="outlined" />
-      </form>
+  </form>*/}
       <ul className="home-book-card">
         {books?.map((book) => {
           return (
@@ -75,7 +74,11 @@ function handleChange(event) {
                   <CardActionArea>
                     <CardMedia
                       className={classes.media}
-                      image={book.volumeInfo.imageLinks ? book.volumeInfo.imageLinks.smallThumbnail : null}
+                      image={
+                        book.volumeInfo.imageLinks
+                          ? book.volumeInfo.imageLinks.smallThumbnail
+                          : null
+                      }
                       title="Contemplative Reptile"
                       style={{
                         height: "30vh",
