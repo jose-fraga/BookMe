@@ -178,7 +178,7 @@ export default function PrimarySearchAppBar(props) {
             <MenuIcon />
           </IconButton>
           <Typography className={classes.title} variant="h6" noWrap>
-            Material-UI
+            BookMe
           </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>

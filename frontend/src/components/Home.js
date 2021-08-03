@@ -19,11 +19,9 @@ const useStyles = makeStyles({
   },
 });
 
-function Home(props) {
+function Home() {
   const [books, setBooks] = useState([]);
-
-  const [search, setSearch] = useState({name:""});
-
+  const [search, setSearch] = useState({ name: "" });
   const classes = useStyles();
 
   useEffect(() => {
@@ -32,40 +30,42 @@ function Home(props) {
         "https://www.googleapis.com/books/v1/volumes?q=javascript"
       );
       setBooks(res.data.items);
-    })();
+    })
+    ();
   }, []);
 
   function handleChange(event) {
     setSearch({
-      ...search,
       [event.currentTarget.name]: event.currentTarget.value,
     });
-    
-    handleSearch()
   }
 
-
-  function handleSearch() {
+  useEffect(() => {
     (async function Request() {
       const res = await axios.get(
         `https://www.googleapis.com/books/v1/volumes?q=${search.name}`
       );
       setBooks(res.data.items);
-    })(); 
-  }
-  console.log("eu sou search from home --> ",search)
-  
+    })
+    ();
+  }, [search.name]);
+
 
   return (
     <div className="home-books">
-      <SimpleTabs onChange={ handleChange } name="name" value={ search.name } />
+      <SimpleTabs
+        onChange={handleChange}
+        type="text"
+        name="name"
+        value={search.name}
+      />
       {/*<form className={classes.root} noValidate autoComplete="off">
         <TextField id="outlined-basic" onChange={ handleChange } label="Search" variant="outlined" />
   </form>*/}
       <ul className="home-book-card">
         {books?.map((book, i) => {
           return (
-            <li key={i} >
+            <li key={i}>
               <Link
                 style={{
                   textDecoration: "none",
