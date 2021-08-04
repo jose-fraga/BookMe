@@ -61,7 +61,7 @@ const useStyles = makeStyles({
                         maxLength: "100",
                     }}
                     >
-                    {description ? description.slice(0, 155) + "..." : title }
+                    {description ? description.slice(0, 150) + "..." : title }
                     </Typography>
                 </CardContent>
                 </CardActionArea>
