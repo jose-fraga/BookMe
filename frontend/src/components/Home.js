@@ -33,7 +33,7 @@ function Home() {
   useEffect(() => {
     (async function Request() {
       const res = await axios.get(
-        "https://www.googleapis.com/books/v1/volumes?q=javascript"
+        `https://www.googleapis.com/books/v1/volumes?q=java&key=AIzaSyCuN37a4QSYomOnhEBx2d6WYY_LOg12Gt0`+`&maxResults=40`
       );
       setBooks(res.data.items);
     })();
@@ -48,7 +48,7 @@ function Home() {
   useEffect(() => {
     (async function Request() {
       const res = await axios.get(
-        `https://www.googleapis.com/books/v1/volumes?q=${search.name}`
+        `https://www.googleapis.com/books/v1/volumes?q=${search.name}&key=AIzaSyCuN37a4QSYomOnhEBx2d6WYY_LOg12Gt0`+`&maxResults=40`
       );
 
       if (res.data.items === undefined) {
@@ -57,6 +57,9 @@ function Home() {
       setBooks(res.data.items);
     })();
   }, [search.name]);
+
+console.log(books)
+
 
   return (
     <div className="home-books">
