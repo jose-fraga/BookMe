@@ -7,13 +7,18 @@ function ChatRoom(props) {
     const { roomId } = props.match.params; // Gets roomId from URL
     const { messages, sendMessage } = useChat(roomId); // Creates a websocket and manages messaging
     const [newMessage, setNewMessage] = useState(""); // Message to be sent
+
+    const [spinningDirection, setDirection] = useState(true)
+
     const handleNewMessageChange = (event) => {
         setNewMessage(event.target.value);
     };
+
     const handleSendMessage = () => {
         sendMessage(newMessage);
         setNewMessage("");
       };
+
       const [book, setBook] = useState([]);
       useEffect( () => {
         (async function Request() {
@@ -23,14 +28,30 @@ function ChatRoom(props) {
             // `https://www.googleapis.com/books/v1/volumes?q="${roomId}"`
             // `https://www.googleapis.com/books/v1/volumes?q=harry`
           );
-          console.log("From the chatRoom:", res.data)
+          // console.log("From the chatRoom:", res.data)
           setBook(res.data);
         })()
       }, [newMessage])
+
+
+      const changeDirection = () =>{
+        const infoUrl = book.volumeInfo.infoLink
+        console.log(infoUrl)
+        setDirection(!spinningDirection)
+        window.open(`${infoUrl}`, "_blank")
+        
+      }
+
+
+
       return (
         <div className="chat-room-container">
-        {/* <SpinningBook /> */}
-        <SpinningBook book={book}/>
+          
+
+        <div onClick={() => changeDirection()}>
+          <SpinningBook  spinningDirection={spinningDirection} book={book}/>        
+        </div>
+        
           <h1 className="room-name">Room: {book.volumeInfo?.title}</h1>
           <div className="messages-container">
             <ol className="messages-list">
