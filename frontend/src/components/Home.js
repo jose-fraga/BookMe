@@ -29,7 +29,7 @@ function Home() {
   const addImgUrl = (img) => {
     setImgUrl(img)
   }  
-  
+
   useEffect(() => {
     (async function Request() {
       const res = await axios.get(
@@ -59,18 +59,22 @@ function Home() {
 
   return (
     <div className="home-books">
+
       <SimpleTabs
         onChange={handleChange}
         type="text"
         name="name"
         value={search.name}
       />
+
       {/*<form className={classes.root} noValidate autoComplete="off">
         <TextField id="outlined-basic" onChange={ handleChange } label="Search" variant="outlined" />
   </form>*/}
+
       <ul className="home-book-card">
       {books.length==0 ? <h1>Enter a book title...</h1> : <BooksList books={books} addImgUrl={addImgUrl}/>}
       </ul>
+      
     </div>
   );
 }

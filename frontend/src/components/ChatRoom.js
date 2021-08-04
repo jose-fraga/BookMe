@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import axios from 'axios';
 import useChat from "../useChat";
 import SpinningBook from './RotateBook';
 
@@ -17,9 +18,35 @@ function ChatRoom(props) {
         setNewMessage("");
       };
 
+
+
+      const [book, setBook] = useState([]);
+
+      useEffect( () => {
+
+        (async function Request() {
+          const res = await axios.get(
+            // `https://www.googleapis.com/books/v1/volumes?q="${roomId}+intitle:keyes"`
+            // `https://www.googleapis.com/books/v1/volumes?q="${roomId}"`
+            `https://www.googleapis.com/books/v1/volumes?q=harry`
+          );
+          console.log("From the chatRoom:", res.data)
+          setBook(res.data);
+          
+        })()
+
+      }, [newMessage])
+
+
+
+
+
+
       return (
         <div className="chat-room-container">
-        <SpinningBook />
+        {/* <SpinningBook /> */}
+
+        <SpinningBook book={book}/>
 
           <h1 className="room-name">Room: {roomId}</h1>
           <div className="messages-container">
