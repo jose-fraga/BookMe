@@ -21,7 +21,7 @@ function BooksList(props) {
 
   return (
     <div className="home-books">
-      <h1>MyList</h1>
+      <h1 className="findBook">Find Your Book</h1>
 
       <ul className="home-book-card">
         {props.books?.map((book, i) => {
