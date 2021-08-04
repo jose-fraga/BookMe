@@ -135,7 +135,7 @@ export default function PrimarySearchAppBar(props) {
   return (
     <div className={classes.grow}>
       <AppBar position="static"
-      style={{width: "100vw"}}>
+      style={{ width: "100vw" }}>
         <Toolbar>
           <IconButton
             edge="start"

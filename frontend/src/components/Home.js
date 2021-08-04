@@ -74,7 +74,7 @@ console.log("eu sou o Books --> ", books)
   </form>*/}
 
       <ul className="home-book-card">
-      {books.length==0 ? <h1>Enter a book title...</h1> : <BooksList books={books} addImgUrl={addImgUrl}/>}
+      {books.length==0 ? <i className="loading fas fa-spinner fa-spin"></i> : <BooksList books={books} addImgUrl={addImgUrl}/>}
       </ul>
       
     </div>

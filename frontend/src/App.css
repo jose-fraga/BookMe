@@ -2,7 +2,7 @@
   text-align: center;
 }
 
-body{
+body {
   background-color: rgb(205, 205, 199);
 }
 
@@ -85,15 +85,19 @@ Card:hover {
   box-shadow: 0 0 2em black;
 }
 
-.new-message-input-field{
+.new-message-input-field {
   position: fixed;
   top: 90vh;
   width: 50%;
 }
 
-
-.findBook{
-  font-family: 'Courier New', Courier, monospace;
+.findBook {
+  font-family: "Courier New", Courier, monospace;
   color: #303a4d;
   font-size: 5em;
+}
+
+.loading {
+  font-size: 6em;
+  margin-top: 2em;
 }
