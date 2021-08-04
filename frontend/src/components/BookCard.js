@@ -34,7 +34,7 @@ const useStyles = makeStyles({
 
     return (
         
-            !(title && imageLinks && description) 
+            !(imageLinks) 
             ?
             <h1>Something is missing: title, images or description</h1>
             :
@@ -61,7 +61,7 @@ const useStyles = makeStyles({
                         maxLength: "100",
                     }}
                     >
-                    {description ? description.slice(0, 155) + "..." : title}
+                    {description ? description.slice(0, 155) + "..." : title }
                     </Typography>
                 </CardContent>
                 </CardActionArea>
