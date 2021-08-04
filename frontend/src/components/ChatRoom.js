@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import useChat from "../useChat";
+import SpinningBook from './RotateBook';
 
 function ChatRoom(props) {
     const { roomId } = props.match.params; // Gets roomId from URL
@@ -18,6 +19,8 @@ function ChatRoom(props) {
 
       return (
         <div className="chat-room-container">
+        <SpinningBook />
+
           <h1 className="room-name">Room: {roomId}</h1>
           <div className="messages-container">
             <ol className="messages-list">
