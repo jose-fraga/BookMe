@@ -48,6 +48,7 @@ const useStyles = makeStyles({
                     style={{
                     height: "30vh",
                     backgroundSize: "400px 300px",
+                    objectFit: "cover",
                     }}
                 />
                 <CardContent>
