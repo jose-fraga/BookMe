@@ -40,6 +40,8 @@ function Home() {
     ();
   }, []);
 
+console.log("eu sou o Books --> ", books)
+
   function handleChange(event) {
     setSearch({
       [event.currentTarget.name]: event.currentTarget.value,

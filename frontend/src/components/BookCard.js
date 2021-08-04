@@ -38,13 +38,12 @@ const useStyles = makeStyles({
             ?
             <h1>Something is missing: title, images or description</h1>
             :
-           
-    
+
             <Card id="CardHome" className={classes.root}>
                 <CardActionArea>
                 <CardMedia
                     className={classes.media}
-                    image={imageLinks?.smallThumbnail}
+                    image={imageLinks.smallThumbnail ? imageLinks.smallThumbnail : imageLinks.thumbnail}
                     title="Contemplative Reptile"
                     style={{
                     height: "30vh",
@@ -52,7 +51,7 @@ const useStyles = makeStyles({
                 />
                 <CardContent>
                     <Typography gutterBottom variant="h5" component="h2">
-                    { title.slice(0,25)}...
+                    { title.length > 25 ? title.slice(0,27) + "..." : title}
                     </Typography>
                     <Typography
                     variant="body2"
@@ -62,7 +61,7 @@ const useStyles = makeStyles({
                         maxLength: "100",
                     }}
                     >
-                    { description.slice(0, 155)}...
+                    {description ? description.slice(0, 155) + "..." : title}
                     </Typography>
                 </CardContent>
                 </CardActionArea>
