@@ -23,12 +23,12 @@ const useStyles = makeStyles({
 function Home() {
   const [books, setBooks] = useState([]);
   const [search, setSearch] = useState({ name: "" });
-  const [imgUrl, setImgUrl] = useState('');
+  const [imgUrl, setImgUrl] = useState("");
   const classes = useStyles();
 
   const addImgUrl = (img) => {
-    setImgUrl(img)
-  }  
+    setImgUrl(img);
+  };
 
   useEffect(() => {
     (async function Request() {
@@ -36,11 +36,8 @@ function Home() {
         "https://www.googleapis.com/books/v1/volumes?q=javascript"
       );
       setBooks(res.data.items);
-    })
-    ();
+    })();
   }, []);
-
-console.log("eu sou o Books --> ", books)
 
   function handleChange(event) {
     setSearch({
@@ -53,15 +50,16 @@ console.log("eu sou o Books --> ", books)
       const res = await axios.get(
         `https://www.googleapis.com/books/v1/volumes?q=${search.name}`
       );
-      setBooks(res.data.items);
-    })
-    ();
-  }, [search.name]);
 
+      if (res.data.items === undefined) {
+        return null;
+      }
+      setBooks(res.data.items);
+    })();
+  }, [search.name]);
 
   return (
     <div className="home-books">
-
       <SimpleTabs
         onChange={handleChange}
         type="text"
@@ -74,9 +72,15 @@ console.log("eu sou o Books --> ", books)
   </form>*/}
 
       <ul className="home-book-card">
-      {books.length==0 ? <i className="loading fas fa-spinner fa-spin"></i> : <BooksList books={books} addImgUrl={addImgUrl}/>}
+        {books.length === 0 ||
+        books.length === undefined ||
+        books.length === null ||
+        books.length === "" ? (
+          <i className="loading fas fa-spinner fa-spin"></i>
+        ) : (
+          <BooksList books={books} addImgUrl={addImgUrl} />
+        )}
       </ul>
-      
     </div>
   );
 }
