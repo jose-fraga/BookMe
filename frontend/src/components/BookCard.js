@@ -36,7 +36,7 @@ const useStyles = makeStyles({
         
             !(title && imageLinks && description) 
             ?
-            <h1>Sarita</h1>
+            <h1>Something is missing: title, images or description</h1>
             :
            
     

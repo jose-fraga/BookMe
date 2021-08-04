@@ -29,3 +29,5 @@ const SpinningBook = (props) => {
 }
 
 export default SpinningBook
+
+// thumbnail , small, medium, extraLarge
