@@ -11,11 +11,11 @@ const SpinningBook = (props) => {
     const imageUrl = props.book ? props.book.volumeInfo?.imageLinks?.smallThumbnail : ""
 
     // const imageUrl = props.book.items ? props.book.items[0].volumeInfo.imageLinks?.smallThumbnail : ""
-    console.log(imageUrl)
+    console.log(props.spinningDirection)
 
     return (
 
-        <div class="content-rotate-right"
+        <div class={props.spinningDirection ? "content-rotate-right" : "content-rotate-left"}
             // style={{ backgroundImage: `url(${book})` }}
             style={{ backgroundImage: `url(${imageUrl})` }}
             // style={{ backgroundImage: `url(${imageUrl})` }}
