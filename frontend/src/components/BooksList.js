@@ -46,7 +46,7 @@ function BooksList(props) {
                           style={{
                             textDecoration: "none",
                           }}
-                          to={`/${book.volumeInfo.title}`}
+                          to={`/${book.id}`}
                         >
 
                         <BookCard bookInfo={book.volumeInfo} addImgUrl={props.addImgUrl}/>

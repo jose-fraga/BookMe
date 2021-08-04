@@ -5,13 +5,10 @@ import book from './codeBook.jpg'
 
 
 const SpinningBook = (props) => {
-    console.log("from Spinner:", props.book)
+    // console.log(props.book)
     // console.log(props.book.items ? props.book.items[0].volumeInfo.imageLinks.smallThumbnail : null)
-
-    const imageUrl = props.book ? props.book.volumeInfo?.imageLinks?.smallThumbnail : ""
-
-    // const imageUrl = props.book.items ? props.book.items[0].volumeInfo.imageLinks?.smallThumbnail : ""
-    console.log(imageUrl)
+    const imageUrl = props.book.items ? props.book.items[0].volumeInfo.imageLinks?.smallThumbnail : ""
+    // console.log(imageUrl)
 
     return (
 

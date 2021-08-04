@@ -26,9 +26,12 @@ function ChatRoom(props) {
 
         (async function Request() {
           const res = await axios.get(
+            `https://www.googleapis.com/books/v1/volumes/${roomId}`
+
             // `https://www.googleapis.com/books/v1/volumes?q="${roomId}+intitle:keyes"`
+
             // `https://www.googleapis.com/books/v1/volumes?q="${roomId}"`
-            `https://www.googleapis.com/books/v1/volumes?q=harry`
+            // `https://www.googleapis.com/books/v1/volumes?q=harry`
           );
           console.log("From the chatRoom:", res.data)
           setBook(res.data);
@@ -48,7 +51,7 @@ function ChatRoom(props) {
 
         <SpinningBook book={book}/>
 
-          <h1 className="room-name">Room: {roomId}</h1>
+          <h1 className="room-name">Room: {book.volumeInfo?.title}</h1>
           <div className="messages-container">
             <ol className="messages-list">
               {messages.map((message, i) => (
