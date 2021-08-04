@@ -36,7 +36,7 @@ const useStyles = makeStyles({
         
             !(imageLinks) 
             ?
-            <h1>Something is missing: title, images or description</h1>
+            null
             :
 
             <Card id="CardHome" className={classes.root}>
@@ -47,6 +47,7 @@ const useStyles = makeStyles({
                     title="Contemplative Reptile"
                     style={{
                     height: "30vh",
+                    backgroundSize: "400px 300px",
                     }}
                 />
                 <CardContent>
