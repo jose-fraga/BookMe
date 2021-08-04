@@ -10,6 +10,7 @@ import MenuItem from "@material-ui/core/MenuItem";
 import Menu from "@material-ui/core/Menu";
 import MenuIcon from "@material-ui/icons/Menu";
 import SearchIcon from "@material-ui/icons/Search";
+import img from "./img/image.png"
 // import AccountCircle from "@material-ui/icons/AccountCircle";
 // import MailIcon from "@material-ui/icons/Mail";
 // import NotificationsIcon from "@material-ui/icons/Notifications";
@@ -135,7 +136,7 @@ export default function PrimarySearchAppBar(props) {
   return (
     <div className={classes.grow}>
       <AppBar position="static"
-      style={{ width: "100vw" }}>
+      style={{ width: "100vw", backgroundColor:"#03989e" }}>
         <Toolbar>
           <IconButton
             edge="start"
@@ -143,7 +144,7 @@ export default function PrimarySearchAppBar(props) {
             color="inherit"
             aria-label="open drawer"
           >
-            <MenuIcon />
+            <img className="Logo" src={img} />
           </IconButton>
           <Typography className={classes.title} variant="h6" noWrap>
             BookMe
