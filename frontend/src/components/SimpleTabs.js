@@ -147,7 +147,7 @@ export default function PrimarySearchAppBar(props) {
             <img className="Logo" src={img} />
           </IconButton>
           <Typography className={classes.title} variant="h6" noWrap>
-            Hello
+            BookMe
           </Typography>
           <div className={classes.search}>
             <div className={classes.searchIcon}>
